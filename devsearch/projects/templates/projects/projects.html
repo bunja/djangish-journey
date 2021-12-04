@@ -6,17 +6,16 @@
 
 <table>
     <tr>
-        <th>ID </th>
+        
         <th>Projects </th>
         <th>Votes </th>
         <th>Positive votes </th>
         <th></th>
+        <th></th>
     </tr>
     {% for project in projects %}
     <tr>
-        <td>
-            {{project.id}}
-        </td>
+        
         <td>
             {{project.title}}
         </td>
@@ -28,6 +27,12 @@
         </td>
         <td>
             {{project.created}}
+        </td>
+        <td>
+            <a href="{% url 'update-project' project.id %}">Edit</a>
+        </td>
+        <td>
+            <a href="{% url 'delete-project' project.id %}">Delete</a>
         </td>
         <td>
             <a href="{% url 'project' project.id %}">View</a>
