@@ -1,4 +1,24 @@
 console.log("HELLO")
+
+let loginBtn = document.getElementById("login-btn")
+let logoutBtn = document.getElementById('logout-btn')
+
+console.log('loginBTn', loginBtn)
+let token = localStorage.getItem('token')
+console.log('token', token)
+
+if (token){
+    loginBtn.remove();
+} else {
+    logoutBtn.remove();
+}
+
+logoutBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    localStorage.removeItem('token')
+    window.location = 'file:///home/larisa/PycharmProjects/django-cource/frontend/login.html'
+})
+
 let projectsUrl = 'http://127.0.0.1:5000/api/projects/' 
 
 let getProjects = () => {
